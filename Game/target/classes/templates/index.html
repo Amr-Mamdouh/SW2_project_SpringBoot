@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Calculator Application</title>
+</head>
+<body>
+	<form action = "/result">
+		<input type  = "text" name = "num1" />
+		<input type  = "text" name = "num2" />
+		<input type  = "submit" value = "Submit" />
+	</form>
+	
+	<p th:if="${result}"
+	
+	th:inline="text"
+	> The result is [[${result}]]  </p>
+</body>
+</html>	
