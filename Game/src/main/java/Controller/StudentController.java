@@ -31,7 +31,20 @@ public class StudentController {
 		}
 		else{
 		mv.setViewName("profile");
-		mv.addObject("", num1 + num2);
+		//mv.addObject("", num1 + num2);
 		return mv;}
+	}
+	@GetMapping("/addstudent")
+	public String StudentForm(Model model)
+	{
+		model.addAttribute("stuendt",new Student());
+		return "regitration";
+	}
+	@PostMapping("/addstudent")
+	public String Studentsubmit(@ModelAttribute Student student, Model model)
+	{
+		student.createstudent(student.getName(), student.getE_mail(), student.getPass(),student.getGender(), student.getPhone(), student.getAge());
+		model.addAttribute("profile","");
+		return "profile";
 	}
 }
