@@ -21,18 +21,7 @@ public class controller {
 		return "login";
 	}
 	
-	@PostMapping("/StudentLogin")
-	public ModelAndView StudentLogin
-	(@ModelAttribute Account account,
-	 Model model
-	)
-	{
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index");
-		//mv.addObject("result", num1 + num2);
-		return mv;
-	}
+	
 	@PostMapping("/TeachertLogin")
 	public ModelAndView TeacherLogin
 	(@ModelAttribute Account account,
