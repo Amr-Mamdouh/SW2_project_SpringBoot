@@ -43,6 +43,7 @@ public class Student extends Person {
 		}
 	public int  login(String user,String pass)
 	{
+		System.err.println("LoginPhase");
 		try {
 		 cdb=db.getconnection();
 		 if(cdb==null)

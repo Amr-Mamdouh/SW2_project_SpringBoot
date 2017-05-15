@@ -11,9 +11,6 @@
 		<input type  = "submit" value = "Submit" />
 	</form>
 	
-	<p th:if="${result}"
-	
-	th:inline="text"
-	> The result is [[${result}]]  </p>
+	<p th:if="${result} th:inline="text"> The result is [[${result}]]  </p>
 </body>
 </html>	

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title>Insert title here</title>
+	<script src="src/main/resources/templates/js/angular.min.js"></script>
+</head>
+<body>
+<form action="#" th:action="@{/Teachers/addGame/}"
+		th:object="${Game}" method="POST">		<p>
+			Enter Game name: <input type="text" th:field="*{G_name}" />
+		</p>
+		<p>
+			Enter Game description: <input type="text" th:field="*{G_description}" />
+		</p>
+		<p>
+			Enter  Teacher ID : <input type="text" th:field="*{t_id}" />
+		</p>
+		<p>
+			Enter Course ID : <input type="text" th:field="*{c_id}" />
+		</p>
+		<p>
+			Enter Game Category: <input type="text" th:field="*{G_category}" />
+		</p>
+		
+		<input type="submit" value="Submit" />
+	</form>
+
+</body>
+</html>

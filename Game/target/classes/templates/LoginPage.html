@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title>Insert title here</title>
+	<script src="src/main/resources/templates/js/angular.min.js"></script>
+</head>
+<body>
+	<form action="#" th:action="@{/Student/StudentLogin/}"
+		th:object="${Account}" method="POST">
+		<p>
+			Enter Your userName: <input type="text" th:field="*{username}" />
+		</p>
+		<p>
+			Enter Your PassWord <input type="text" th:field="*{Password}"
+				name="pass" />
+		</p>
+		<input type="submit" value="Submit" />
+	</form>
+</body>
+</html>

@@ -267,7 +267,7 @@ try {
 	 {mystmnt= cdb.createStatement();
 	 
 	 
-	 ResultSet myres=mystmnt.executeQuery("select  C_name from course");
+	 ResultSet myres=mystmnt.executeQuery("select  C_name,C_ID from course");
 	 if (myres==null)
 		 return null ;
 	 else {
@@ -276,6 +276,7 @@ try {
 		 while (myres.next())
 		 	{
 			 course.add(myres.getString("C_name"));
+			 course.add(myres.getString("C_ID"));
 		 	}
 		 }
 			 }
@@ -401,4 +402,32 @@ return null;
 
 }
 
+public boolean CopyGame(int id)
+	{
+		try {
+			cdb=db.getconnection();
+			 if(cdb==null)
+				 return false;
+			 else
+			 {mystmnt= cdb.createStatement();
+			 
+			 
+			 ResultSet myres=mystmnt.executeQuery("Select * from game where G_ID=3"+id);
+			 if (myres==null)
+				 return false ;
+			 else {
+
+				 mystmnt= cdb.createStatement();
+ 		 		String s="'"+myres.getString("g_name")+"',"+myres.getInt("course")+",'"+myres.getString("category")+"',"+myres.getInt("T_ID")+","+myres.getInt("G_ID")+",'"+myres.getString("description") +"'";
+ 		 		
+ 		 		int myres2=mystmnt.executeUpdate("insert into game (g_name,course,category,T_ID,G_ID,description) value ("+s+")");
+ 		 		return true;
+			 }
+			 } 
+
+			
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }
