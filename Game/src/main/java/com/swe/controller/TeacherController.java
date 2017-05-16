@@ -58,11 +58,16 @@ public class TeacherController {
 		model.addAttribute("Game",new game());
 		return "AddGame";
 	}
-	@PostMapping("/addGame/")
+	@GetMapping("/addGame/")
 	public String GameCreate(@ModelAttribute game ga, Model model)
 	{
 		ga.creategame(ga.getG_name(), ga.getG_description(),ga.getC_id(),ga.getT_id(),ga.getG_category());
-		model.addAttribute("profile","");
+		model.addAttribute("profile","welcome Teacher ");
 		return "MyProfile";
+	}
+	@GetMapping("/AddComment")
+	public String AddComment(Model model)
+	{
+		return "TeacherComment";
 	}
 }

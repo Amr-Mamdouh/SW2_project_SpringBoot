@@ -1,6 +1,6 @@
 package Model;
 
-public class MultipleQuestion {
+public class MultipleQuestion extends Question {
 	private String Question;
 	private String answer1;
 	private String answer2;

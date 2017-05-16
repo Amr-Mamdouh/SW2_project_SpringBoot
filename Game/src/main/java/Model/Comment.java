@@ -57,7 +57,7 @@ public class Comment {
 			Game_ID = game_ID;
 		}
 		
-		public boolean AddStudentComment(String com,int id ,int gid)
+		public boolean AddStudentComment(String com,int id ,int gid,int tid)
 		{
 			try {
 				cdb=db.getconnection();
@@ -71,7 +71,12 @@ public class Comment {
 				 int myres=mystmnt.executeUpdate("insert into g_comment(comm,C_ID,G_ID,S_ID) value("+s+")");
 				 if(myres==-1)
 					 return false;
-				 else return true;
+				 else{ 
+					 Notification n=new Notification();
+					 String not="Their is a student that make a comment on Game that their ID ="+gid;
+					 n.AddTeacherNotification(not, tid);
+					 return true;
+					 }
 				 }
 			} catch (Exception e) {
 				return false;

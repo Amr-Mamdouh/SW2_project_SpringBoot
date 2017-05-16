@@ -216,7 +216,10 @@ public class game {
 	    		 		int myres=mystmnt.executeUpdate("insert into game (g_name,course,category,T_ID,G_ID,description) value ("+s+")");
 	    		 		if(myres==-1)
 	    		 			return -1;
-	    		 		else return (4000+gnum-1);
+	    		 		else {
+	    		 			NotifyStudent(c_id);
+	    		 				return (4000+gnum-1);
+	    		 		}
 	    		 	}
 	    		 } 
 	    	catch (Exception ex) {
@@ -429,5 +432,21 @@ public boolean CopyGame(int id)
 		} catch (Exception e) {
 			return false;
 		}
+	}
+public void NotifyStudent(int cid)
+	{
+	try {
+		cdb=db.getconnection();
+		mystmnt= cdb.createStatement();
+		ResultSet myres=mystmnt.executeQuery("select S_ID from student_courses where C_ID="+cid);
+		Notification n=new Notification();
+		while (myres.next())
+		{String not="Their is a new Game add in coures id "+cid;
+			n.AddStudentNotification(not,myres.getInt("S_ID"));
+		}
+
+	} catch (Exception e) {
+		// TODO: hadndle exception
+	}
 	}
 }

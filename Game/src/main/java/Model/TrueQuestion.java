@@ -1,6 +1,6 @@
 package Model;
 
-public class TrueQuestion {
+public class TrueQuestion extends Question{
 
 	private String Question;
 	private String Answer;
